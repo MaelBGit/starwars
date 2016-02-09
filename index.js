@@ -54,30 +54,27 @@ function authorOfQuote(theQuote)
     var reg = quotes[i].quote.search(theQuote);
     if(reg != -1)
     {
-      console.log("\nis the author of the quote: " + quotes[i].author);
+      console.log("is the author of the quote: " + quotes[i].author);
     }
   }
 }
 authorOfQuote("The Force");
 
 
-
-function randomQuoteFromCharacter(character)
-{
-  var nb = 0;
-  for(var i =0; i<quotes.length; i++)
-  {
-    var reg = quotes[i].author.search(character)
-    if(reg != -1)
-    {
-      nb += 1;
+function randomQuoteFromCharacter(author) {
+    var quotes_author = [];
+    var auteur = '';
+    for(var i=0; i<quotes.length; i++) {
+      var reg = quotes[i].author.search(author);
+      if(reg != -1) {
+        quotes_author.push(quotes[i].quote);
+        auteur = quotes[i].author;
+      }
     }
-  }
-  var tab = [nb - 1];
-  
-  var random = Math.random();
-  var index = Math.floor(random*tab.length);
-  var quote = tab[index];
+    var random = Math.random();
+    var index = Math.floor(random*quotes_author.length);
+    var quotation = quotes_author[index];
+    console.log(auteur+' said : '+quotation);
 }
 
 randomQuoteFromCharacter("Yoda");
