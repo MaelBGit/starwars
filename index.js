@@ -34,3 +34,50 @@ var quotes = [{
   'author': '- Darth Vader',
   'quote': 'The Force is strong with this one.'
 }];
+
+function randomQuote()
+{
+  var random = Math.random();
+  var index = Math.floor(random*quotes.length);
+  var quote = quotes[index];
+  console.log("Author: " + quote.author);
+  console.log("Quote: " + quote.quote);
+}
+randomQuote();
+
+
+
+function authorOfQuote(theQuote)
+{
+  for(var i =0; i<quotes.length; i++)
+  {
+    var reg = quotes[i].quote.search(theQuote);
+    if(reg != -1)
+    {
+      console.log("\nis the author of the quote: " + quotes[i].author);
+    }
+  }
+}
+authorOfQuote("The Force");
+
+
+
+function randomQuoteFromCharacter(character)
+{
+  var nb = 0;
+  for(var i =0; i<quotes.length; i++)
+  {
+    var reg = quotes[i].author.search(character)
+    if(reg != -1)
+    {
+      nb += 1;
+    }
+  }
+  var tab = [nb - 1];
+  
+  var random = Math.random();
+  var index = Math.floor(random*tab.length);
+  var quote = tab[index];
+}
+
+randomQuoteFromCharacter("Yoda");
