@@ -75,6 +75,16 @@ function randomQuoteFromCharacter(author) {
     var index = Math.floor(random*quotes_author.length);
     var quotation = quotes_author[index];
     console.log(auteur+' said : '+quotation);
+
+ReactDOM.render(
+  React.createElement('h1', null, auteur),
+ document.getElementById('random-quote-author')
+ );
+
+ ReactDOM.render(
+   React.createElement('h2',null, quotation),
+  document.getElementById('random-quote-content')
+  );
 }
 
 randomQuoteFromCharacter("Yoda");
